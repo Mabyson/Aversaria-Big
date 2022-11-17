@@ -1,0 +1,117 @@
+﻿Aver_reinstate_autocracy = {
+	picture = "gfx/interface/illustrations/decisions/Aver_decision_autocracy.dds"
+
+	desc = Aver_reinstate_autocracy_desc
+	selection_tooltip = Aver_reinstate_autocracy_tooltip
+	major = yes
+
+	ai_check_interval = 120
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		OR = {
+			has_title = title:e_etepezea
+			has_title = title:e_megos_kalathipsomi
+			has_title = title:e_mikros_kalathipsomi
+			has_title = title:e_malcois
+			has_title = title:e_opakhasia
+			has_title = title:e_aironoi
+			has_title = title:e_aversaria
+			has_title = title:e_aversaria_voreias
+			has_title = title:e_oraispol_aautokratia
+			has_title = title:e_asiupoli_aautokratia
+			AND = {
+				top_liege = { has_title = title:e_etepezea }
+				primary_title = { target_is_de_facto_liege_or_above = title:e_etepezea }
+			}
+			AND = {
+				top_liege = { has_title = title:e_megos_kalathipsomi }
+				primary_title = { target_is_de_facto_liege_or_above = title:e_megos_kalathipsomi }
+			}
+			AND = {
+				top_liege = { has_title = title:e_mikros_kalathipsomi }
+				primary_title = { target_is_de_facto_liege_or_above = title:e_mikros_kalathipsomi }
+			}
+			AND = {
+				top_liege = { has_title = title:e_malcois }
+				primary_title = { target_is_de_facto_liege_or_above = title:e_malcois }
+			}
+			AND = {
+				top_liege = { has_title = title:e_opakhasia }
+				primary_title = { target_is_de_facto_liege_or_above = title:e_opakhasia }
+			}
+			AND = {
+				top_liege = { has_title = title:e_aironoi }
+				primary_title = { target_is_de_facto_liege_or_above = title:e_aironoi }
+			}
+			AND = {
+				top_liege = { has_title = title:e_aversaria }
+				primary_title = { target_is_de_facto_liege_or_above = title:e_aversaria }
+			}
+			AND = {
+				top_liege = { has_title = title:e_aversaria_voreias }
+				primary_title = { target_is_de_facto_liege_or_above = title:e_aversaria_voreias }
+			}
+			AND = {
+				top_liege = { has_title = title:e_oraispol_aautokratia }
+				primary_title = { target_is_de_facto_liege_or_above = title:e_oraispol_aautokratia }
+			}
+			AND = {
+				top_liege = { has_title = title:e_asiupoli_aautokratia }
+				primary_title = { target_is_de_facto_liege_or_above = title:e_asiupoli_aautokratia }
+			}
+		}
+		NOT = { has_government = Aver_autocrata_government }
+	}
+
+	is_valid = {
+		prestige >= 1000
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+	}
+
+	effect = {
+		change_government = Aver_autocrata_government
+		hidden_effect = {
+			every_vassal_or_below = {
+				limit = {
+					primary_title = { target_is_de_facto_liege_or_above = root.primary_title }
+				}
+				change_government = Aver_autocrata_government
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					NOT = { primary_title = { has_title_law = aversarian_succession_law } }
+					OR = {
+			            primary_title = title:e_etepezea
+			            primary_title = title:e_megos_kalathipsomi
+			            primary_title = title:e_mikros_kalathipsomi
+			            primary_title = title:e_malcois
+			            primary_title = title:e_opakhasia
+			            primary_title = title:e_aironoi
+			            primary_title = title:e_aversaria
+			            primary_title = title:e_aversaria_voreias
+			            primary_title = title:e_oraispol_aautokratia
+			            primary_title = title:e_asiupoli_aautokratia
+						
+					}
+				}
+			}
+			primary_title = { add_title_law = aversarian_succession_law }
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}

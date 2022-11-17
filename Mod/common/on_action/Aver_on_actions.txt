@@ -1,0 +1,5 @@
+﻿on_yearly_playable = {
+	events = {
+		Aver_vassal.1000	
+	}
+}

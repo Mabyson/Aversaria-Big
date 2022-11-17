@@ -1,0 +1,91 @@
+﻿@ai_standard_liege_desire = 2
+@ai_standard_vassal_desire = 1
+
+Aver_special_contract = {
+	display_mode = radiobutton
+	is_shown = {
+		scope:vassal.primary_title.tier >= tier_duchy
+	}
+	obligation_levels = {
+		special_contract_none = {
+			position = { 0 1 }
+			default = yes
+		}
+		Aver_special_contract_gov = {
+			is_valid = {
+				scope:vassal.primary_title.tier >= tier_kingdom
+			}
+			parent = special_contract_none
+			position = { 1 1 }
+
+			levies_factor = -0.40
+			tax_factor = 0.30
+
+			vassal_modifier = {
+				army_maintenance_mult = -0.2
+				men_at_arms_cap = 2
+				garrison_size = 0.2
+				controlled_province_advantage = 5
+			}
+
+			flag = Aver_has_gov_contract
+
+			ai_liege_desire =  {
+				value = 0
+				if = {
+					limit = {
+						scope:vassal = {
+							vassal_contract_obligation_level:feudal_government_taxes < feudal_tax_normal_level
+							vassal_contract_obligation_level:feudal_government_levies > feudal_levies_normal_level
+						}
+					}
+					add = @ai_standard_liege_desire
+				}
+			}
+		}
+		Aver_special_contract_legio = {
+			is_valid = {
+				scope:liege.culture = {
+					has_innovation = innovation_Aver_legio_system
+				}
+				scope:vassal.primary_title.tier >= tier_duchy
+			}
+			parent = special_contract_none
+			position = { 1 0 }
+
+			liege_modifier = {
+				vassal_opinion = -5
+			}
+
+			vassal_modifier = {
+				men_at_arms_cap = 2
+				fellow_vassal_opinion = 15
+			}
+
+			flag = Aver_has_legio_contract
+		}
+		Aver_special_contract_stlegio = {
+			is_valid = {
+				scope:liege.culture = {
+					has_innovation = innovation_Aver_legio_system
+				}
+				scope:vassal.primary_title.tier >= tier_duchy
+			}
+			parent = special_contract_none
+			position = { 1 2 }
+
+			levies_factor = -1.00
+			tax_factor = -1.00
+
+			liege_modifier = {
+				men_at_arms_limit = 1
+			}
+
+			vassal_modifier = {
+				men_at_arms_limit = -5
+			}
+
+			flag = Aver_has_stlegio_contract
+		}
+	}
+}

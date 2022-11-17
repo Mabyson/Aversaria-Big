@@ -1,0 +1,90 @@
+﻿l_english:
+# Decisions
+ Aver_reinstate_autocracy:0 "Reinstate Aversarian Aautocracy"
+ Aver_reinstate_autocracy_confirm:0 "Bring the hype in"
+ Aver_reinstate_autocracy_tooltip:0 "Aversarian Aautocracy government shall be reborn"
+ Aver_reinstate_autocracy_desc:0 "Mistakes have been made... by a horde of barbarians driven by a dirty peasant who still think he could beat us with sticks and stones. Tremble peasant for the Aautocrata has been reborn."
+ Aver_reinstate_autocracy_effect_tooltip:0 "Aversarian Aautocracy will be restored and all de jure vassals will be forced to accept it."
+
+ # Innovations
+ innovation_Aver_legio_system:0 "Aversarian Legion structure"
+ innovation_Aver_legio_system_desc:0 "TO DO"
+ innovation_Aver_legio_army:0 "Aversarian Legion system"
+ innovation_Aver_legio_army_desc:0 "Aversaria is at its twilight. The time for an armed insurrection by the common man is here. While our godly prowess in the art of magicka is well and truly lacking for the moment, our armaments remain the most effective and versatile on the continent. Unfortunately, we also lack the bodies required to man our borders and police our cities."
+ Aver_disables_normal_maa_legio:0 "Loses access to regular [men_at_arms|E] units. Existing regiments will not disband."
+
+ # Game Concepts
+ game_concept_Aver_autocracy:0 "Aversarian Autocracy"
+ game_concept_Aver_autocracy_desc:0 "TO DO"
+ 
+ # Men-At-Arms
+ Aver_peltast:0 "Peltast"
+ Aver_peltast_flavor:0 "#F TO DO#!"
+ Aver_psiloi:0 "Psiloi"
+ Aver_psiloi_flavor:0 "#F TO DO#!"
+ Aver_koursores:0 "Koursores"
+ Aver_koursores_flavor:0 "#F TO DO#!"
+ Aver_kontophoros:0 "Kontophoros"
+ Aver_kontophoros_flavor:0 "#F TO DO#!"
+
+ # Contracts
+ Aver_special_contract:0 "Special Administration System"
+ Aver_special_contract_legio:0 "Legion"
+ Aver_special_contract_legio_desc:2 "#flavor TO DO#!"
+ Aver_special_contract_legio_short:0 "Legion"
+ Aver_special_contract_stlegio:0 "State Legion System"
+ Aver_special_contract_stlegio_desc:2 "#flavor TO DO#!"
+ Aver_special_contract_stlegio_short:0 "State Legion"
+ Aver_special_contract_gov:0 "Governorate"
+ Aver_special_contract_gov_desc:2 "#flavor TO DO#!"
+ Aver_special_contract_gov_short:0 "Governorat"
+
+ Aver_modify_vassal_contract:0 "Modify Obligations"
+ Aver_liege_modify_vassal_contract_interaction:0 "$Aver_modify_vassal_contract$"
+ Aver_liege_modify_vassal_contract_interaction_desc:0 "Renegotiate [recipient.GetShortUINamePossessiveNoTooltip] [obligations|E] to you"
+ Aver_vassal_modify_vassal_contract_interaction:0 "$Aver_modify_vassal_contract$"
+ Aver_vassal_modify_vassal_contract_interaction_desc:0 "Renegotiate your [obligations|E] to [recipient.GetShortUINamePossessiveNoTooltip]"
+ Aver_unlock_legio_contract:0 "Unlocks the #high $Aver_special_contract_legio$#! [feudal_contract|E]"
+ Aver_unlock_stlegio_contract:0 "Unlocks the #high $Aver_special_contract_stlegio$#!"
+
+ # Government
+ Aver_autocrata_government:0 "Aversarian Aautocracy"
+ Aver_autocrata_government_adjective:0 "Autocracy"
+ Aver_autocrata_government_realm:0 "Aversarian Realm"
+ Aver_autocrata_government_label:1 "Aversarian [obligations|E] determine the relationship between a [vassal|E] and the Autocratir."
+ Aver_autocrata_government_vassals_label:1 "Aversarian [obligations|E] are based on individual contracts."
+ Aver_autocrata_government_obligations:0 "[GetGovernment( 'Aver_autocrata_government' ).GetName] [obligations|E]"
+
+ # Interactions
+ Aver_call_legio_interaction:0 "TO DO"
+ Aver_call_legio_interaction_desc:0 "$Aver_AUTOKRATOR_header$Call a [vassal|E] subject to a $Aver_special_contract_legio$ to aid in our defensive war against an external enemy of the Aaurocrata."
+ Aver_claim_title_interaction:0 "Seize Domain"
+ Aver_claim_title_interaction_desc:0 "$Aver_AUTOKRATOR_header$Forcibly seizes a [title|E] held by any [vassal|E] with the Aautocrata [government_form|E], bypassing the need of a [revoke_title_reason|E]"
+ Aver_claim_title_interaction_notification:0 "Seized Domain"
+ Aver_must_be_vassal_or_court_member:0 "Recipient must be a direct vassal or a member of your court."
+
+ # Events and Modifiers
+ Aver_seized_domain:0 "Aautocratir seized my title"
+
+ # For now this is just a copypaste from the normal game, to avoid changing base files and increase overall compatibility
+ Aver_succession_order_laws:0 "[succession_laws|E]"
+ Aver_succession_order_laws_singular:0 "[succession_law|E]"
+ Aver_partition_succession_law:1 "Partition"
+ Aver_partition_succession_law_subname:0 "All Children Inherit Equally"
+ Aver_partition_succession_law_effects:1 "\n#V Under $partition_succession_law$ [succession], your [titles] will be divided equally between your children.#!\n\n#weak $partition_base_desc$#!"
+ Aver_partition_base_desc:2 "#weak Upon succession, all [titles|E] held by the late [ruler|E] will be divided amongst their [eligible_children|E], with the [player_heir|E] always being given the [primary_title|E], [realm_capital|E] and any direct [de_jure|E] titles associated with it.\n\nYounger children will be given Titles starting with those of the same [rank|E] as the Primary Title; if none are available they will be given lower-ranking Titles. Your Player Heir can not be preemptively granted Titles they do not stand to inherit.\n#!"
+ Aver_high_partition_succession_law:1 "High Partition"
+ Aver_high_partition_succession_law_subname:0 "All Children Inherit"
+ Aver_high_partition_succession_law_effects:1 "\n#V Under $high_partition_succession_law$ [succession], the lion's share of [titles] will go to your [heir] – the rest will be divided between your children.#!\n\n#weak $partition_base_desc$\nThe Player Heir will #emp always#! inherit at least half of the late Ruler's Titles.\n#!"
+ Aver_confederate_partition_succession_law:1 "Confederate Partition"
+ Aver_confederate_partition_succession_law_subname:0 "All Children Inherit Equally"
+ Aver_confederate_partition_succession_law_effects:1 "\n#V Under $confederate_partition_succession_law$, your [titles] will be divided equally between your children. New [titles] may be created for younger [heirs].#!\n\n#weak $partition_base_desc$\nYounger children will have Titles created for them, if enough land is held.\n\n#!#X Tribal rulers are locked to this succession type.#!\n"
+ Aver_single_heir_succession_law:4 "Primogeniture"
+ Aver_single_heir_succession_law_subname:0 "Oldest Child Inherits"
+ Aver_single_heir_succession_law_effects:1 "\n#V Under $single_heir_succession_law$ [succession], your oldest child inherits all your [titles].#!\n\n#weak Upon succession, all of the late Ruler's [titles|e] will be given to the [player_heir|E], which is their oldest [eligible_child|E]. Younger children will receive nothing.\n#!"
+ Aver_single_heir_succession_law_youngest:4 "Ultimogeniture"
+ Aver_single_heir_succession_law_youngest_subname:0 "Youngest Child Inherits"
+ Aver_single_heir_succession_law_youngest_effects:1 "\n#V Under $single_heir_succession_law_youngest$ [succession], your youngest child inherits all your [titles].#!\n\n#weak Upon succession, all of the late Ruler's [titles|e] will be given to the [player_heir|E], which is their youngest [eligible_child|E]. Older children will receive nothing.\n#!"
+ Aver_single_heir_dynasty_house:1 "House Seniority"
+ Aver_single_heir_dynasty_house_subname:0 "Oldest [house] Member Inherits"
+ Aver_single_heir_dynasty_house_effects:1 "\n#V Under $single_heir_dynasty_house$ [succession], the oldest member of your [house] will inherit all your titles.#!\n\n#weak Upon succession, all of the late Ruler's [titles|e] will be given to the oldest eligible member of their [house|E]. Your children will not be given anything, unless one of them happens to be the oldest House member.\n#!"

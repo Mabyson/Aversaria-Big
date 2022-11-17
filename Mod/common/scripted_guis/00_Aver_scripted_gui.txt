@@ -1,0 +1,11 @@
+﻿Aver_has_reformed_army = {
+	scope = character.culture
+
+	is_valid = {
+		has_innovation = innovation_Aver_legio_army
+	}
+
+	effect = {
+	}
+}
+

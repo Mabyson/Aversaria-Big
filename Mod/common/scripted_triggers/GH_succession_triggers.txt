@@ -1,0 +1,221 @@
+﻿#Special succession types
+#If adding new types to the decision, use a trigger, otherwise they may break if the culture is split.
+special_succession_type_available_trigger = { # update this with new successions
+	OR = {
+		special_succession_aversarian_trigger = yes
+		special_succession_sjalvolki_trigger = yes
+		special_succession_witengamot_trigger = yes
+		special_succession_thing_trigger = yes
+		special_succession_tanistry_trigger = yes
+	}
+}
+
+can_have_sjalvolki_succession_law_trigger = {
+	custom_description = {
+		text = succession_laws_must_have_hereditary_government_tooltip
+		OR = {
+			has_government = feudal_government
+			has_government = tribal_government
+			has_government = clan_government
+		}
+	}
+	custom_description = {
+		text = succession_laws_must_be_sjalvolki_tooltip
+		OR = {
+			culture = { has_cultural_pillar = heritage_sjalvolki }
+			has_religion = religion:sjalvolki_religion
+			faith = {
+				has_doctrine = tenet_sjalvolki_syncretism
+			}
+		}
+	}
+}
+
+can_have_rite_succession_law_trigger = {
+	custom_description = {
+		text = succession_laws_must_have_hereditary_government_tooltip
+		OR = {
+			has_government = feudal_government
+			has_government = tribal_government
+			has_government = clan_government
+		}
+	}
+	custom_description = {
+		text = succession_laws_must_be_sjalvolki_tooltip
+		OR = {
+			culture = { has_cultural_pillar = heritage_sjalvolki }
+			OR = {
+				has_faith = faith:piety_rite
+				has_faith = faith:orispolj_rite
+				has_faith = faith:authority_rite
+			}
+			faith = {
+				has_doctrine = tenet_sjalvolki_syncretism
+			}
+		}
+	}
+}
+
+can_keep_aversarian_succession_law_trigger = {
+	trigger_if = {
+		limit = {
+			has_title_law = aversarian_succession_law
+		}
+		can_have_aversarian_succession_law_trigger = yes
+	}
+}
+
+can_have_aversarian_succession_law_trigger = {
+	custom_description = {
+		text = succession_laws_must_have_hereditary_government_tooltip
+		OR = {
+			has_government = feudal_government
+			has_government = tribal_government
+			has_government = clan_government
+			has_government = magocratic_government
+			has_government = Aver_autocrata_government
+		}
+	}
+	custom_description = {
+		text = succession_laws_must_be_aversarian_tooltip
+		OR = {
+			culture = { has_cultural_parameter = blood_senate_succession_enabled }
+			has_religion = religion:aversarinas_aautokrata_religion
+			faith = { has_doctrine = tenet_aversarian_syncretism }
+		}
+	}
+	custom_description = {
+		text = succession_laws_must_have_magic_supremacy_tooltip
+		faith = { has_doctrine_parameter = magic_supreme }
+	}
+}
+
+can_keep_amsari_succession_law_trigger = {
+	trigger_if = {
+		limit = {
+			has_realm_law = amsari_succession_law
+		}
+		can_have_amsari_succession_law_trigger = yes
+	}
+}
+
+can_have_amsari_succession_law_trigger = {
+	custom_description = {
+		text = succession_laws_must_have_hereditary_government_tooltip
+		OR = {
+			has_government = feudal_government
+			has_government = clan_government
+		}
+	}
+	custom_description = {
+		text = succession_laws_must_be_amsari_tooltip
+		OR = {
+			culture = { has_cultural_pillar = heritage_zarasadari }
+			has_religion = religion:amsari_religion
+		}
+	}
+}
+
+can_keep_landed_order_succession_law_trigger = {
+	trigger_if = {
+		limit = {
+			has_realm_law = holy_order_succession_law
+		}
+		can_have_holy_order_succession_law_trigger = yes
+	}
+}
+
+can_have_landed_order_succession_law_trigger = {
+	has_government = landed_order_government
+}
+
+can_have_military_unit_succession_law_trigger = {
+	has_government = military_unit_government
+}
+
+can_have_magocracy_succession_law_trigger = {
+	has_government = magocratic_government
+}
+
+can_have_theocracy_clique_succession_law_trigger = {
+	has_government = theocracy_government
+}
+
+can_have_magocratic_republic_succession_law_trigger = {
+	has_government = magocratic_republic
+}
+
+
+should_have_liege_clique_appointment_succession = {
+	is_landed = yes
+	OR = {
+		has_government = landed_order_government
+		has_government = military_unit_government
+		has_government = theocracy_government
+	}
+	is_independent_ruler = no
+	has_same_government = liege
+}
+
+###############
+## Sjalvolki ##
+###############
+
+	valid_for_sjalvolki_succession_trigger = {
+		is_alive = yes
+		is_incapable = no
+		is_imprisoned = no
+		NOR = {
+			has_trait = blind
+			has_trait = gh_dehanded
+			has_title = title:e_sjalvolki
+		}
+		trigger_if = {
+			limit = { is_adult = no }
+			age >= 14
+			OR = {
+				has_trait = brave
+				has_trait = ambitious
+				has_trait = physique_good_2
+				has_trait = physique_good_3
+				has_trait = giant
+			}
+		}
+	}
+
+special_succession_aversarian_trigger = {
+	culture = { has_cultural_pillar = heritage_aversarian }
+}
+
+special_succession_sjalvolki_trigger = {
+	culture = { has_cultural_pillar = heritage_sjalvolki }
+}
+
+special_succession_rite_trigger = {
+	OR = {
+		has_faith = faith:piety_rite
+		has_faith = faith:orispolj_rite
+		has_faith = faith:authority_rite
+	}
+}
+
+eligible_for_aversarian_succession = {
+	is_alive = yes		# Could feasibly happen if the person dies for unrelated reasons during the succession
+	is_imprisoned = no	# Same as above
+	is_incapable = no	# When we have events during the duels themselves that could result in this, checking for it will be critical
+	trigger_if = {
+		limit = { age < 16 }
+		age >= 12
+		OR = {
+			has_trait = brave
+			has_trait = ambitious
+		}
+	}
+	trigger_if = {
+		limit = { has_variable = magical_prowess }
+		var:magical_prowess > 0
+	}
+	trigger_else = {
+		always = no
+	}
+}

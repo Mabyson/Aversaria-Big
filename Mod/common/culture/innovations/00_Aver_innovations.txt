@@ -1,0 +1,58 @@
+﻿@Aver_innovation_legio_system = "gfx/interface/icons/culture_innovations/innovation_Aver_legio_system.dds"
+@Aver_innovation_legio_army = "gfx/interface/icons/culture_innovations/innovation_Aver_legio_army.dds"
+
+innovation_Aver_legio_system = {
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	region = world_ga_aversarian_homelands
+	icon = @Aver_innovation_legio_system
+
+	potential = {
+		OR = {
+			# Imperial
+			has_cultural_pillar = heritage_aversarian
+			has_cultural_tradition = tradition_legacy_of_aversaria
+			has_cultural_tradition = tradition_legacy_of_aversaria_lesser
+		}
+	}
+
+	custom = Aver_unlock_legio_contract
+	custom = Aver_unlock_stlegio_contract
+
+	modifier = {
+		direct_vassal_opinion = 5
+	}
+
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+innovation_Aver_legio_army = {
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	region = world_ga_aversarian_homelands
+	icon = @Aver_innovation_legio_army
+
+	potential = {
+		OR = {
+			# Imperial
+			has_cultural_pillar = heritage_aversarian
+			has_cultural_tradition = tradition_legacy_of_aversaria
+			has_cultural_tradition = tradition_legacy_of_aversaria_lesser
+		}
+	}
+
+	modifier = {
+		levy_size = -1.50
+		tax_mult = -0.25
+	}
+
+	unlock_maa = Aver_peltast
+	unlock_maa = Aver_psiloi
+	unlock_maa = Aver_koursores
+	unlock_maa = Aver_kontophoros
+	custom = Aver_disables_normal_maa_legio
+
+	flag = global_regional
+	flag = tribal_era_regional
+}

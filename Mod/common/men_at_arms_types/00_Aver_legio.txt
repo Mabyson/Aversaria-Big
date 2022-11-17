@@ -1,0 +1,147 @@
+﻿# standard costs
+@maa_buy_cost = 150
+@maa_low_maintenance_cost = 1.0
+@maa_high_maintenance_cost = 5.0
+@cultural_maa_extra_ai_score = 50
+
+Aver_peltast = {
+	type = skirmishers
+
+	damage = 15
+	toughness = 16
+	pursuit = 20
+	screen = 28
+
+	terrain_bonus = {
+		forest = { damage = 4 toughness = 6 }
+		taiga = { damage = 4 toughness = 6 }
+		jungle = { damage = 4 toughness = 6 }
+	}
+
+	counters = {
+		heavy_infantry = 1
+	}
+
+	can_recruit = {
+		culture = { has_cultural_innovation = innovation_Aver_legio_army }
+	}
+
+	buy_cost = { gold = skirmisher_recruitment_cost }
+	low_maintenance_cost = { gold = skirmisher_low_maint_cost }
+	high_maintenance_cost = { gold = skirmisher_high_maint_cost }
+
+	mercenary_fallback = yes
+	holy_order_fallback = yes
+
+	stack = 200
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = skirmishers
+}
+
+Aver_psiloi = {
+	type = archers
+
+	damage = 32
+	toughness = 12
+	pursuit = 0
+	screen = 0
+
+	terrain_bonus = {
+		hills = { damage = 15 toughness = 4 }
+		forest = { toughness = 4 screen = 4 }
+		taiga = { toughness = 4 screen = 4 }
+	}
+
+	counters = {
+		skirmishers = 1
+	}
+
+	can_recruit = {
+		culture = { has_cultural_innovation = innovation_Aver_legio_army }
+	}
+
+	buy_cost = { gold = bowmen_recruitment_cost }
+	low_maintenance_cost = { gold = bowmen_low_maint_cost }
+	high_maintenance_cost = { gold = bowmen_high_maint_cost }
+
+	mercenary_fallback = yes
+	holy_order_fallback = yes
+
+	stack = 200
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = archers
+}
+
+Aver_koursores = {
+	type = light_cavalry
+
+	damage = 45
+	toughness = 30
+	pursuit = 40
+	screen = 40
+
+	terrain_bonus = {
+		plains = { damage = 10 }
+		drylands = { damage = 10 }
+		hills = { damage = -5 }
+		mountains = { damage = -10 }
+		desert_mountains = { damage = -15 }
+		wetlands = { damage = -20 pursuit = -20 screen = -20 }
+	}
+
+	counters = {
+		archers = 1
+	}
+
+	can_recruit = {
+		culture = { has_cultural_innovation = innovation_Aver_legio_army }
+	}
+
+	buy_cost = { gold = light_cavalry_recruitment_cost }
+	low_maintenance_cost = { gold = light_cavalry_low_maint_cost }
+	high_maintenance_cost = { gold = light_cavalry_high_maint_cost }
+
+	mercenary_fallback = yes
+	holy_order_fallback = yes
+
+	stack = 200
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = light_cavalry
+}
+
+Aver_kontophoros = {
+	type = pikemen
+
+	damage = 35
+	toughness = 30
+	pursuit = 0
+	screen = 0
+
+	terrain_bonus = {
+		hills = { toughness = 10 }
+		mountains = { toughness = 12 }
+		desert_mountains = { toughness = 12 }
+	}
+
+	counters = {
+		light_cavalry = 1
+		heavy_cavalry = 1
+	}
+
+	can_recruit = {
+		culture = { has_cultural_innovation = innovation_Aver_legio_army }
+	}
+
+	buy_cost = { gold = pikemen_recruitment_cost }
+	low_maintenance_cost = { gold = pikemen_low_maint_cost }
+	high_maintenance_cost = { gold = pikemen_high_maint_cost }
+
+	mercenary_fallback = yes
+	holy_order_fallback = yes
+
+	stack = 200
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = pikemen
+}
+
+

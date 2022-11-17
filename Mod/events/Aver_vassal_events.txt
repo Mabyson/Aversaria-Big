@@ -1,0 +1,36 @@
+﻿namespace = Aver_vassal
+
+Aver_vassal.1000 = {
+	type = character_event
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_title = title:e_etepezea
+			has_title = title:e_megos_kalathipsomi
+			has_title = title:e_mikros_kalathipsomi
+			has_title = title:e_malcois
+			has_title = title:e_opakhasia
+			has_title = title:e_aironoi
+			has_title = title:e_aversaria
+			has_title = title:e_aversaria_voreias
+			has_title = title:e_oraispol_aautokratia
+			has_title = title:e_asiupoli_aautokratia
+		}
+		any_vassal_or_below = { NOT = { has_government = Aver_autocrata_government } }
+	}
+
+	immediate = {
+		if = {
+			limit = { NOT = { has_government = Aver_autocrata_government } }
+			change_government = Aver_autocrata_government
+		}
+	    every_vassal_or_below = {
+	    	limit = {
+		        vassal_contract_has_modifiable_obligations = yes
+		        NOT = { has_government = Aver_autocrata_government }
+	    	}
+	    	change_government = Aver_autocrata_government
+	    }
+	}
+}
